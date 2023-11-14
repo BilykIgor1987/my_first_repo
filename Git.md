@@ -400,20 +400,21 @@ branch 'main' set up to track 'origin/main'.
 Если вы сделали изменения в вашем удаленном репозитории, другие пользователи могут скачать изменения при помощи команды pull.
 
 ```sh
-git pull git pull
+git pull --rebase
 remote: Enumerating objects: 5, done.
 remote: Counting objects: 100% (5/5), done.
 remote: Compressing objects: 100% (3/3), done.
-remote: Total 3 (delta 1), reused 0 (delta 0), pack-reused 0
-Unpacking objects: 100% (3/3), 812 bytes | 9.00 KiB/s, done.
-From https://github.com/BilykIgor1987/my_first_repo
-   4d5f466..f0de0bd  main       -> origin/main
-Updating 4d5f466..f0de0bd
-Fast-forward
- README.md | Bin 144 -> 168 bytes
- 1 file changed, 0 insertions(+), 0 deletions(-)
+remote: Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 731 bytes | 11.00 KiB/s, done.
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
 ```
-Так как были изменения они скопировались в репозиторий на ПК.
+Так как были изменения они наложились на версию ПК и скопировались в репозиторий на ПК.
+Далее разрешаем конфликт, то что есть, что пришло, оба варианта, либо правим и делаем свою версию. Дальше Принимаем изменения.
 
 ## Часть 5. Как удалить локальный репозиторий
 Вам не понравился один из ваших локальных Git-репозиториев и вы хотите стереть его со своей машины. Для этого вам всего лишь надо удалить скрытую папку «.git» в корневом каталоге репозитория. Сделать это можно 3 способами:
